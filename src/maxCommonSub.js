@@ -9,5 +9,23 @@
  * @returns {number}
  */
 module.exports.maxCommonSub = function maxCommonSub(str1, str2) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  const m = str1.length;
+  const n = str2.length;
+  const dp = Array.from({ length: m + 1 }, () => Array(n + 1).fill(0));
+  let maxLen = 0;
+  let endIndexStr1 = 0;
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (str1[i - 1] === str2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+        if (dp[i][j] > maxLen) {
+          maxLen = dp[i][j];
+          endIndexStr1 = i - 1;
+        }
+      } else {
+        dp[i][j] = 0;
+      }
+    }
+  }
+  return str1.slice(endIndexStr1 - maxLen + 1, endIndexStr1 + 1);
 };
