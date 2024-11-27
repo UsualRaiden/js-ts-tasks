@@ -14,5 +14,17 @@
  * @returns {function}
  */
 module.exports.censorship = function censorship(forbidden) {
-  throw new Error('Not implemented'); // remove me and write a solution
+  return function (str) {
+    const marker = '%%NEWLINE%%';
+    str = str.replace(/\\n/g, marker);
+    str = str.replace(/\n/g, marker);
+    forbidden.forEach(function (item) {
+      const regex = new RegExp(item, 'gi');
+      str = str.replace(regex, function (match) {
+        return '*'.repeat(match.length);
+      });
+    });
+    str = str.replace(new RegExp(marker, 'g'), '\n');
+    return str;
+  };
 };
