@@ -1,57 +1,85 @@
 class User {
-  // Your code for class User here
+  constructor(firstName, secondName, age) {
+    if (typeof firstName !== 'string' || typeof secondName !== 'string' || typeof age !== 'number') {
+      throw new Error('Invalid data types');
+    }
+    if (!firstName || !secondName || age <= 0) {
+      throw new Error('Invalid data values');
+    }
+
+    this._firstName = firstName;
+    this._secondName = secondName;
+    this._age = age;
+  }
+
+  get name() {
+    return `${this._firstName} ${this._secondName}`;
+  }
+
+  set firstName(name) {
+    this._firstName = name;
+  }
+
+  set secondName(name) {
+    this._secondName = name;
+  }
+
+  celebrateBirthday() {
+    this._age += 1;
+  }
+
+  introduce() {
+    return `My name is ${this._firstName} ${this._secondName}, I'm ${this._age}`;
+  }
+
+  get age() {
+    return this._age;
+  }
+
+  set age(value) {
+    if (typeof value !== 'number' || value <= 0) {
+      throw new Error('Invalid age');
+    }
+    this._age = value;
+  }
 }
 
-/**
- * Create a class named User
- * @type {User}
- */
-module.exports.User = User;
-
-/**
- * Create new User object and return it
- * @param {string} firstName
- * @param {string} secondName
- * @param {number} age
- * @returns {User}
- */
 module.exports.createUser = function (firstName, secondName, age) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  return new User(firstName, secondName, age);
 };
 
-/**
- * Create Array of Users by provided Array with user data (firstName, secondName, age)
- * @param {Array<{ firstName, secondName, age }>} data
- * @returns {Array<User>}
- */
 module.exports.createUsers = function (data) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  return data.map(userData => new User(userData.firstName, userData.secondName, userData.age));
 };
 
-/**
- * Find Users in Array of Users who's age equals the provided age
- * @param {Array<Users>} users
- * @param {number} age
- * @returns {Array<Users>}
- */
 module.exports.findUsersByAge = function (users, age) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  return users.filter(user => user.age === age);
 };
 
-/**
- * Return a function that sort provided Array of Users using a comparator function from TestUtils
- * @param TestUtils
- * @returns {function(*): *[]}
- */
 module.exports.createUsersSortFn = function (TestUtils) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  function sort(users) {
+    for (let i = 0; i < users.length - 1; i++) {
+      for (let j = 0; j < users.length - i - 1; j++) {
+        if (users[j + 1].age - users[j].age > 0) {
+          const temp = users[j];
+          users[j] = users[j + 1];
+          users[j + 1] = temp;
+        }
+      }
+    }
+    return users;
+  }
+  return sort;
 };
 
-/**
- * In Array of Users every User under odd index in Array should celebrate his birthday
- * @param {Array<User>} users
- * @return {Array<User>}
- */
 module.exports.celebrate = function (users) {
-  throw new Error('Not implemented'); // remove this line and put your code here
+  users.forEach((user, index) => {
+    if (index % 2 === 0) {
+      user.celebrateBirthday();
+    }
+  });
+
+  return users;
 };
+
+module.exports.User = User;
