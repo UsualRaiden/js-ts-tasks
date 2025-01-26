@@ -1,5 +1,227 @@
-/* your css code here  */
-
 body {
   background: linear-gradient(45deg, #FFD6C3, #FCB5FF, #BEC6FF);
+}
+*{
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: white;
+}
+.background{
+  background: #121212;
+}
+#back
+{
+  padding-left: 18px;
+}
+#options
+{
+  padding-right: 18px;
+}
+.background
+{
+  background-color: #121212;
+  width: 100%;
+  height: 100%;
+}
+.header
+{
+  padding-top: 55px;
+  position: static;
+  width: 100%;
+  display: flex;
+}
+.title
+{
+  position: static;
+  width: 100%;
+  margin-left: 15px;
+}
+#user_name{
+  position: static;
+  width: 100%;
+  text-align: center;
+}
+#avatar
+{
+  width: 70px;
+  height: 60px;
+  display: flex;
+  padding-bottom: 18px;
+}
+#avataricon
+{
+  object-fit: cover;
+    margin: auto;
+}
+#subscribers
+{
+  display: flex;
+  position: absolute;
+  padding-left: 90px;
+  margin:auto;
+}
+#posts, #followers, #following
+{
+  font-size: 20px;
+  padding-left: 22px;
+  padding-right: 16px;
+  padding-top: 20px;
+  text-align: center;
+}
+#label1
+{
+  font-size: 14px;
+  font-weight: 230;
+}
+.nameblock
+{
+  position: static;
+  width: 100%;
+  padding-top: 11px;
+}
+#account_type
+{
+  color: gray;
+  font-weight: 260;
+}
+#site
+{
+  color: #D4E0ED;
+  font-weight: 260;
+}
+#name, #account_type, #site
+{
+  padding-top: 5px;
+}
+.buttons
+{
+  display: flex;
+  position: static;
+  width: 100%;
+  margin-left: 15px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+#button_label
+{
+  width: 100%;
+  padding-top: 5px;
+  text-align: center;
+  color: white;
+}
+#follow
+{
+  width: 93px;
+  height: 33px;
+  background-color: #4192EF;
+  border-radius: 12px;
+}
+#message, #email
+{
+  margin-left: 5px;
+  width: 93px;
+  height: 33px
+     background-color: #000000;
+  border-radius: 12px;
+  border: 1.15px solid #343434;
+}
+#arrow
+{
+  margin:auto;
+  width: 32px;
+  height: 33px;
+  background-color: #000000;
+  border-radius: 12px;
+  border: 1.15px solid #343434;
+}
+.highlights
+{
+  display: flex;
+  position: static;
+  width: 100%;
+  height: 70px;;
+}
+#highlight
+{
+  padding-left: 5px;
+  margin:auto;
+}
+#highlightsrc
+{
+}
+#label2
+{
+  font-size: 14px;
+  font-weight: 230;
+  text-align: center;
+  width: 75px;
+}
+.middlebar
+{
+  display: flex;
+  position: static;
+  width: 100%;
+  height: 25px;
+  margin-left: 5px;
+  padding-top: 10px;
+}
+
+#separator-src
+{
+  padding-top: 25px;
+}
+.separator
+{
+  display: flex;
+  position: static;
+  padding-top: 30px;
+}
+#rightbutton
+{
+  width: 180px;
+  height: 20px;
+}
+#leftbutton
+{
+  width: 180px;
+  height: 20px;
+}
+#photos
+{
+  border-bottom: 1px solid white;
+}
+.image_grid
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: static;
+  margin-left: 5px;
+  width: 360px;
+  height: 350px;
+}
+.grid-item
+{
+  max-width: 159px;
+  margin-top: 3px;
+  display: grid;
+  background-size: cover;
+  background-position: center;
+}
+.footer
+{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #121212;
+  border-radius: 0px 0px 38px 38px;
+}
+#footer-icon
+{
+  padding-top: 10px;
 }
