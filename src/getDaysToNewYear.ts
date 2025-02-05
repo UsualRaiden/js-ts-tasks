@@ -4,5 +4,21 @@
  * @returns {number}
  */
 module.exports.getDaysToNewYear = function getDaysToNewYear(targetDate: Date | string): number {
-  throw new Error('Not implemented'); // delete this line and write your code
+  //Напишите функцию для расчета количества дней, оставшихся до следующего Нового года (в 2023 году следующий Новый год приходится на 1 января 2024 года)
+  const newYear = new Date(2024, 0, 1);
+  let dateObj: Date;
+
+  if (typeof targetDate === 'string') {
+    const [day, month, year] = targetDate.split('.').map(Number);
+    if (day !== undefined && month !== undefined && year !== undefined) {
+      dateObj = new Date(year, month - 1, day);
+    } else {
+      throw new Error('Invalid date format');
+    }
+  } else {
+    dateObj = targetDate;
+  }
+
+  const diffMillis = newYear.getTime() - dateObj.getTime();
+  return Math.floor(diffMillis / (24 * 60 * 60 * 1000));
 };
